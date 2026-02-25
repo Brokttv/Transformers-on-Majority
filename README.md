@@ -23,7 +23,7 @@ In this repo we aim to verify that emperically and aswer the follwing question p
 
 **5)** A saturated transformer is highly seed-sensitive, recovering the solution in only ~50% of runs
 
-### Discussion:
+### Plots:
 Fig 1 illustrating both `1)` and `2)` claims:
 <br>
   <p align="center">
@@ -45,3 +45,4 @@ Fig 3 illustrating both `4)` and `5)` claims:
 </p>
 <br>
 
+### Discussion:
