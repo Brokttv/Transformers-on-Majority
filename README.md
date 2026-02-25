@@ -46,3 +46,9 @@ Fig 3 illustrating both `4)` and `5)` claims:
 <br>
 
 ### Discussion:
+
+**Striking observations**: 
+- A non-saturated transformer always converges to a token-clustering solution
+- Saturated training finds multiple different solutions: some clustering strongly, some near-uniform, some inverted, some learning nothing. The mechanism isn't consistent
+- Transformers are sensitive to even-even train and test sequence lengths. It reovers a soltuion to Majority ~ as reliably as when trained on odd-odd pairs but only for smaller test sequence lengths
+- It seems that transformers do not only have one solUtion for `MAJORITY`
