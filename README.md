@@ -13,12 +13,35 @@ In this repo we aim to verify that emperically and aswer the follwing question p
 - `Softmax` and `Hard-max` (saturated transformer) are used both during inference to log accuracies for each
 
 ### Key Findings:
-**1)** Optimizer matters. Adam recovers MAJORITY reliably. SGD struggles and hits a ceiling. Same function, same architecture, different answer
+**1)** Optimizer matters. Adam recovers MAJORITY reliably. SGD struggles and hits a ceiling.
 
-**2)** Embedding size matters for SGD but not Adam. Adam needs just 1. SGD needs ~15 before it starts working at all
+**2)** Embedding size matters for SGD but not Adam. Adam needs just 1 for most cases. SGD needs ~15 before it starts working at all
 
-**3)** Training length parity matters. Train on odd, recover reliably. Train on even, softmax fails systematically at 81%
+**3)** Training length parity matters. Train on odd, recover reliably. Train on even, softmax acc plumets in half of seeds
 
 **4)** A Softmax transformer reliably recovers the solution and achieves perfect accuracy under both Softmax and saturated inference
 
 **5)** A saturated transformer is highly seed-sensitive, recovering the solution in only ~50% of runs
+
+### Discussion:
+
+<br>
+  <p align="center">
+  <img src="assets/sgd" width="950"/>
+</p>
+<br>
+
+
+<br>
+  <p align="center">
+  <img src="assets/ood-vs-even" width="950"/>
+</p>
+<br>
+
+
+<br>
+  <p align="center">
+  <img src="assets/cluster1" width="800"/>
+</p>
+<br>
+
