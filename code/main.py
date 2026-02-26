@@ -8,7 +8,7 @@ from model import Restricted_Transformer
 from train_test import train, test
 
 
-def set_seed(seed: int):
+def set_model_seed(seed: int):
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -18,7 +18,7 @@ def set_seed(seed: int):
 
 def set_data_seed(seed:int):
     random.seed(seed)
-    numpy.random.seed(seed)
+    np.random.seed(seed)
 
 def main():
     parser = argparse.ArgumentParser(
@@ -71,7 +71,7 @@ def main():
     results = {}
 
     for seed in range(10):  
-        set_seed(seed)
+        set_model_seed(seed)
         print(f"Seed {seed} ────────────────────────────────────────")
 
         model = Restricted_Transformer(emb_size=1).to(device)
@@ -104,11 +104,6 @@ def main():
 
         print(f"  softmax    : {acc_soft:5.2f}%")
         print(f"  saturated  : {acc_hard:5.2f}%\n")
-
-
-    print("Final summary (10 seeds):")
-    print(f"Softmax   avg: {np.mean(softmax_accs):5.2f}% ± {np.std(softmax_accs):.2f}")
-    print(f"Saturated avg: {np.mean(sat_accs):5.2f}% ± {np.std(sat_accs):.2f}")
 
 
 if __name__ == "__main__":
