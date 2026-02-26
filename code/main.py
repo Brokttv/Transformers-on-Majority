@@ -16,6 +16,9 @@ def set_seed(seed: int):
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
 
+def set_data_seed(seed:int):
+    random.seed(seed)
+    numpy.random.seed(seed)
 
 def main():
     parser = argparse.ArgumentParser(
@@ -43,6 +46,7 @@ def main():
     )
     parser.add_argument("--optim", choices=["AdamW", "SGD"], default="AdamW")
     parser.add_argument("--lr", type=float, default=0.01)
+    parser.add_argument("--data_seed", type = int, default=42)
     parser.add_argument("--device", type=str, default=None,
                         help="cuda / cpu / mps — auto-detected if not set")
 
@@ -52,22 +56,23 @@ def main():
     print(f"Device: {device}")
     print(f"Task:  {args.task.upper()}\n")
 
+    set_data_seed(args.data_seed)
+    is_majority = (args.task == "majority")
+    
+    train_loader, test_loader = get_dataloaders(
+        batch_size=args.batch_size,
+        train_num_samples=args.train_num_samples,
+        train_seq_len=args.train_seq_len,
+        test_num_samples=args.test_num_samples,
+        test_seq_len=args.test_seq_len,
+        majority=is_majority,
+        )
+    
     results = {}
 
     for seed in range(10):  
         set_seed(seed)
         print(f"Seed {seed} ────────────────────────────────────────")
-
-        is_majority = (args.task == "majority")
-
-        train_loader, test_loader = get_dataloaders(
-            batch_size=args.batch_size,
-            train_num_samples=args.train_num_samples,
-            train_seq_len=args.train_seq_len,
-            test_num_samples=args.test_num_samples,
-            test_seq_len=args.test_seq_len,
-            majority=is_majority,
-        )
 
         model = Restricted_Transformer(emb_size=1).to(device)
 
