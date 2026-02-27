@@ -35,10 +35,10 @@ def main():
     parser.add_argument("--epochs", type=int, default=25,
                         help="number of training epochs")
     parser.add_argument("--batch-size", type=int, default=64)
-    parser.add_argument("--train-num-samples", type=int, default=8192)
-    parser.add_argument("--train-seq-len", type=int, default=31)
-    parser.add_argument("--test-num-samples", type=int, default=2048)
-    parser.add_argument("--test-seq-len", type=int, default=31)
+    parser.add_argument("--train-num-samples", type=int, default=1000)
+    parser.add_argument("--train-seq-len", type=int, default=11)
+    parser.add_argument("--test-num-samples", type=int, default=200)
+    parser.add_argument("--test-seq-len", type=int, default=21)
     parser.add_argument(
         "--train-saturated",
         action="store_true",
