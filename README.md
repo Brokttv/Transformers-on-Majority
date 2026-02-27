@@ -1,7 +1,4 @@
 # Transformers-as-Circuits
-This repo is intended to be an icremental approach to studying the capacities of transformers via training on binary sequences representing different binary tasks from varying complexity classes inspired by complexity theory problems.
-
-
 
 ---
 ## Setup
