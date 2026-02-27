@@ -47,7 +47,7 @@ python main.py --task or --epochs 30 --batch-size 64 --train-num-samples 8192 --
 If you find this work useful, please cite it as:
 
 ```bibtex
-@misc{brokttv2025vit,
+@misc{Elimadi2026majority,
   title        = {Transformers-on-Majority: Mapping Theory to Reality Revealing new Mechanistic Features in Transformers Learnability},
   author       = {Adam Elimadi},
   year         = {2026},
