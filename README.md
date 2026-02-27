@@ -27,21 +27,21 @@ In this repo we aim to verify that emperically and aswer the follwing question p
 Fig 1 illustrating both `1)` and `2)` claims:
 <br>
   <p align="center">
-  <img src="assets/sgd" width="950"/>
+  <img src="assets/sgd" width="600"/>
 </p>
 <br>
 
 Fig 2 illustratiing claim `3)`:
 <br>
   <p align="center">
-  <img src="assets/ood-vs-even" width="950"/>
+  <img src="assets/ood-vs-even" width="600"/>
 </p>
 <br>
 
 Fig 3 illustrating both `4)` and `5)` claims:
 <br>
   <p align="center">
-  <img src="assets/cluster5" width="800"/>
+  <img src="assets/cluster5" width="600"/>
 </p>
 <br>
 
