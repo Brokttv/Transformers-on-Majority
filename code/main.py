@@ -7,6 +7,7 @@ from tqdm import tqdm
 from data import get_dataloaders
 from model import Restricted_Transformer
 from train_test import train, test
+from utils import compute_clustering_metrics
 
 
 def set_model_seed(seed: int):
@@ -91,6 +92,10 @@ def main():
             if epoch % 5 == 0 or epoch == args.epochs:
                 print(f"  ep {epoch:3d} | loss {loss:.5f}")
 
+
+        # computing clustering metrics:
+        clustering_metrics = compute_clustering_metrics(model)
+
         # Final eval – both modes
         model.attention.saturated = False
         acc_soft = test(model, test_loader, device)
@@ -99,10 +104,11 @@ def main():
         acc_hard = test(model, test_loader, device)
 
         results[seed] = {
+            "clustering_metrics": round(clustering_metrics,2),
             "softmax_acc": round(acc_soft, 2),
             "saturated_acc": round(acc_hard, 2),
         }
-
+        print(f" clustering : {clustering_metrics}")
         print(f"  softmax    : {acc_soft:5.2f}%")
         print(f"  saturated  : {acc_hard:5.2f}%\n")
 
