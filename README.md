@@ -1,6 +1,6 @@
 # Transformers-as-Circuits
 
-[![alt text](assets/Image.jpeg)](https://brokttv.github.io/Blog-1/)
+[![alt text](assets/Image.jpeg)](https://brokttv.github.io/Majority/)
 
 ---
 ## Setup
